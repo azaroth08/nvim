@@ -9,7 +9,7 @@ return {
 
         dependencies = { "rafamadriz/friendly-snippets" },
 
-        config = function()
+        confi = function()
             local ls = require("luasnip")
             ls.filetype_extend("javascript", { "jsdoc" })
 
