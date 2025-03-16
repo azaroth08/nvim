@@ -30,7 +30,7 @@ return {
 			formatters = {
 				my_formatter = {
 					command = "clang-format",
-					args = "--sort-includes = false",
+					args = { "--sort-includes=false", "--style={BasedOnStyle: Google, ColumnLimit: 0}" },
 				},
 			},
 		})
