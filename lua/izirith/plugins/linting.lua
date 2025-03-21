@@ -4,6 +4,11 @@ return {
 	config = function()
 		local lint = require("lint")
 
+		local cpplint = require("lint").linters.cpplint
+		cpplint.args = {
+			"--filter=-whitespace/line_length,-readability/casting",
+		}
+
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
