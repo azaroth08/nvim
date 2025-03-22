@@ -61,7 +61,10 @@ return {
 		require("dapui").setup()
 		require("dap-go").setup()
 
-		vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
-		vim.keymap.set("n", "<Leader>dc", dap.continue, {})
+		vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, { desc = "DAP | toggle breakpoint" })
+		vim.keymap.set("n", "<Leader>dc", dap.continue, { desc = " DAP | Continue" })
+		vim.keymap.set("n", "<Leader>de", function()
+			dapui.close()
+		end, { desc = "DAP | Close Ui" })
 	end,
 }
