@@ -15,7 +15,7 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = { "prettier_custom" },
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
@@ -31,6 +31,19 @@ return {
 				my_formatter = {
 					command = "clang-format",
 					args = { "--sort-includes=false", "--style={BasedOnStyle: Google, ColumnLimit: 0}" },
+				},
+				prettier_custom = {
+					command = "prettier",
+					inherit = true,
+					args = function(_, ctx)
+						return {
+							"--stdin-filepath",
+							ctx.filename,
+							"--prose-wrap=always",
+							"--print-width=120",
+							"--parser=markdown",
+						}
+					end,
 				},
 			},
 		})
