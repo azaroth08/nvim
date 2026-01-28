@@ -22,6 +22,7 @@ return {
 				"rust_analyzer",
 				"clangd",
 				"ts_ls",
+				"omnisharp",
 			},
 			handlers = {
 				function(server_name)
@@ -38,6 +39,12 @@ return {
 								},
 							},
 						},
+					})
+				end,
+
+				["omnisharp"] = function()
+					require("lspconfig").omnisharp.setup({
+						cmd = { vim.fn.stdpath("data") .. "/mason/bin/OmniSharp" },
 					})
 				end,
 			},
