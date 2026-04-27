@@ -1,0 +1,24 @@
+return {
+	"stevearc/oil.nvim",
+	dependencies = { "echasnovski/mini.icons", opts = {} },
+	config = function()
+		require("oil").setup({
+			watch_for_changes = true,
+			keymaps = {
+				["-"] = { "actions.parent", mode = "n" },
+				["_"] = { "actions.open_cwd", mode = "n" },
+				-- unbind nav mappings
+				["<C-h>"] = false,
+				["<C-l>"] = false,
+			},
+			view_options = {
+				show_hidden = true,
+			},
+			win_options = {
+				signcolumn = "yes",
+				winbar = "%{v:lua.require('oil').get_current_dir()}",
+			},
+		})
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+	end,
+}
